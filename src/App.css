@@ -1,33 +1,132 @@
 .App {
-  text-align: center;
+    display: grid;
+    grid-template-columns: 24% 74%;
+    grid-template-rows: 16vh 70vh 10vh;
+    grid-gap: 1%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.Header {
+    display: grid;
+    grid-template-columns: 58% 18% 18%;
+    grid-gap: 1%;
+    grid-column: 1 / span 2;
+    background: #eaeaea;
+    align-items: center;
+    justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.button {
+    grid-column: 3/3;
+    background: red;
+    height: 80%;
+    border: 3pt;
+    border-color: black;
 }
 
-.App-link {
-  color: #61dafb;
+.HeaderText {
+    grid-column: 1/1;
+    background: coral;
+    height: 80%;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.username-box {
+    grid-column: 2/2;
+    height: 50%;
+    align-items: center;
+}
+.Footer {
+    grid-column: 1 / span 2;
+    background: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Demo Specific Styles */
+.Sidebar {
+    display: grid;
+    grid-template-rows: 10% 20% 20% 20% 20%;
+    grid-gap: 2%;
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0;
+    background: rgb(126, 207, 207);
+    align-items: center;
+    justify-content: center;
+}
+
+.Main-Window {
+    height: 100%;
+    width: 100%;
+    background: #ee8989;
+    justify-content: center;
+}
+
+.Navigation-Title {
+    grid-row: 1;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.links {
+    grid-row: 2;
+    border: 1px solid black;
+}
+.Top-Articles-Table {
+    grid-row: 3;
+border: 1px solid black;}
+.Hot-Topics-Table {
+    grid-row: 4;
+    border: 1px solid black;
+}
+.Trending-Authors-Table {
+    border: 1px solid black;
+    grid-row: 5;
+}
+.Article-Table-Element{
+    border: 1px solid black;
+    align-content: center;
+}
+.Article-Table-Header{
+    border: 3px solid rgba(235, 20, 13, 0.877);
+    align-content: center;
+    background: rgba(155, 236, 34, 0.842)
+}
+.Article-Table{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+.Main-Article-Window{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10% 80% 10%;
+    width: 100%;
+    height: 100%;
+    Background: red;
+    border: 1px solid black;
+}
+.Main-Article-Body{
+    grid-row: 2;
+    grid-column: 1/ span 2;
+    Background: red;
+    border: 1px solid black;
+    align-content: center;
+
+}
+.Main-Article-Author{
+    grid-column: 1;
+    grid-row: 1;
+
+    Background: blue;
+    border: 1px solid black;
+}
+.Main-Article-Title{
+    grid-column: 2;
+    grid-row: 1;
+
+    Background: red;
+    border: 1px solid black;
 }
