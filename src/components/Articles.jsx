@@ -15,6 +15,10 @@ class Articles extends Component {
                     <option value="votes">Sort by Votes </option>
                     <option value="comment_count">Sort by comments </option>
                 </select>
+                <select onChange={this.handleOrder}>
+                    <option defaultValue value='desc'>Descending</option>
+                    <option value="asc">Ascending</option>
+                </select>
                 <table className="Article-Table">
                     <tbody>
                         <tr>
@@ -64,10 +68,18 @@ class Articles extends Component {
             </div>
         );
     };
+    handleOrder = event => {
+        this.props={...this.props, order:event.target.value}
+        fetchArticles(this.props).then(articles => {
+            console.log(this.props.sort_by, "<<<<");
+            const artArr = articles.data.articles;
+            this.setState({ articles: artArr });
+        });
+    }
 
     handleSort = event => {
         // this.props.sort_by=event.target.value
-        this.props = { sort_by: event.target.value, ...this.props };
+        this.props={...this.props, sort_by:event.target.value}
         fetchArticles(this.props).then(articles => {
             console.log(this.props.sort_by, "<<<<");
             const artArr = articles.data.articles;
