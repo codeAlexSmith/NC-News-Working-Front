@@ -8,7 +8,7 @@ export const fetchApi = async () => {
 };
 
 export const fetchArticles = async (props) => {
-    const articles = await axios.get(BaseURL+'articles',{params:{topic:props.topic, author:props.author} });
+    const articles = await axios.get(BaseURL+'articles',{params:{topic:props.topic, author:props.author, sort_by:props.sort_by}});
     return articles;
 };
 
