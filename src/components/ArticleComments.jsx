@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Router, Link } from "@reach/router";
-import { fetchCommentsByArticle, fetchArticleById } from "./api";
+import { fetchCommentsByArticle, fetchArticleById, incVotesByComment } from "./api";
+import "../App.css"
 
 class ArticleComments extends Component {
     state = {
@@ -24,6 +25,9 @@ class ArticleComments extends Component {
                                 {" "}
                                 Comment Votes{" "}
                             </td>
+                            <td className="Article-Table-Header">
+                                Vote!!!
+                            </td>
                         </tr>
                         {comments.map(comment => {
                             return (
@@ -37,13 +41,20 @@ class ArticleComments extends Component {
                                     <td className="Article-Table-Element">
                                         {comment.votes}
                                     </td>
+                                    <td>
+                                    <button id={comment.comment_id} onClick={incVotesByComment}>+</button>
+                                    <button id={comment.comment_id} onClick={incVotesByComment}>-</button>
+                                    </td>
                                 </tr>
                             );
                         })}
                     </tbody>
                 </table>
                 <button> Push to add your Comment </button>{" "}
-                <textarea placeholder="Add your Comment" />
+                <br></br>
+                <textarea placeholder="Add your Comment" className="Comment-Box"/>
+                <br>
+                </br>
                 <Link to={`/articles/${article_id}`} >Return to Article</Link>
             </div>
         );

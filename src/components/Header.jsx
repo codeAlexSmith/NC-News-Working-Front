@@ -83,12 +83,12 @@ class Header extends Component {
     handleSubmit = event => {
         event.preventDefault();
         fetchAuthorByName(this.state.value).then(user => {
-            console.log(user.data.user.length, "<<<event");
+            if(this.state.value){
             if (user.data.user.length) {
                 this.setState({ user: this.state.value, wrongName: false });
             } else {
                 this.setState({ user: null, wrongName: true });
-            }
+            }}
         });
     };
     handleLogOut = event => {

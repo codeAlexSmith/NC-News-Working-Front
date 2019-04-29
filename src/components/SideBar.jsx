@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { Router, Link } from "@reach/router";
+import { fetchArticles } from "./api";
+import TopArticlesTable from './TopArticlesTable'
+import MostDiscussedTable from './MostDiscussedTable'
+import "../App.css";
 function Nav() {
     return (
         <nav>
@@ -10,53 +14,21 @@ function Nav() {
             <Link to="/Articles">Articles</Link>
             <br />
             <Link to="/Authors">Authors</Link>
-            
         </nav>
     );
 }
 
-function SideBar() {
-    return (
-        <div className='Sidebar'>
-                <header className='Navigation-Title'>Navigation Menu</header>
-                <Nav className = 'links'/>
-                <table className ='Top-Articles-Table'>
-                    <tbody>
-                        <tr>
-                            <td />
-                            {"Top Articles"}
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td />
-                            {"Article 1"}
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td />
-                            {"Article 2"}
-                        </tr>
-                    </tbody>
-                </table>
-                <table className='Hot-Topics-Table'>
-                    <tbody>
-                        <tr>
-                            <td />
-                            {"Hot Topics "}
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td />
-                            {"Earth is Flat"}
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td />
-                            {"Earth is Not Round"}
-                        </tr>
-                    </tbody>
-                </table>
-                <table className='Trending-Authors-Table'>
+class SideBar extends Component {
+    state = { articles: [], sort_by: "votes" };
+    render = () => {
+        let articles = this.state.articles;
+        return (
+            <div className="Sidebar">
+                <header className="Navigation-Title">Navigation Menu</header>
+                <Nav className="links" />
+                <TopArticlesTable></TopArticlesTable>
+                <MostDiscussedTable></MostDiscussedTable>
+                <table className="Trending-Authors-Table">
                     <tbody>
                         <tr>
                             <td />
@@ -75,7 +47,8 @@ function SideBar() {
                     </tbody>
                 </table>
             </div>
-    );
+        );
+    };
 }
 
-export default SideBar
+export default SideBar;
